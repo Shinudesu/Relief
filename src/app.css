@@ -1,0 +1,156 @@
+* {
+    border-radius: 0px!important;
+}
+
+html, body {
+    width:100%;
+    height:100%;
+    padding:0;
+    margin:0;
+}
+
+#root {
+    width:100%;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    display:flex;
+    flex-flow: column;
+}
+
+body {
+    background:#111111; 
+}
+
+.titlebar {
+    -webkit-app-region: drag;
+    -webkit-user-select: none;
+    width:100%;
+    height:30px;
+    flex: 0 1 auto;
+    margin:0;
+    padding:0;
+    background:#222222;
+    color:white;
+}
+
+.titlebar .titlebar-file-buttons {
+    -webkit-app-region: no-drag;
+    float:left;
+}
+
+.titlebar .titlebar-file-buttons .bp3-button {
+    color:#777777;
+}
+
+.titlebar .titlebar-media-name {
+    float: left;
+    width: max-content;
+}
+
+
+.titlebar .titlebar-window-buttons {
+    -webkit-app-region: no-drag;
+    float:right;
+}
+
+.titlebar.bp3-button, .titlebar .bp3-button .bp3-active {
+    border-radius: 0px !important;
+}
+
+.titlebar .bp3-divider {
+    border-color: #181818;
+}
+
+.titlebar .bp3-button:focus {
+    outline: none;
+}
+
+/*
+
+
+.bp3-button:focus {
+    outline: none;
+}
+
+#root {
+    height:100%;
+}
+
+#titlebar {
+    -webkit-app-region: drag;
+    position: fixed;
+    width:100%;
+    height:30px;
+    z-index: 2;
+    color:white;
+    line-height: 20px;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 1;
+}
+
+#titlebar:hover {
+    opacity: 1;
+}
+
+#titlebar #video-title {
+    float:left;
+    padding:5px 10px 5px 10px;
+    font-weight: 500;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 600px;
+}
+
+#titlebar #titlebar-buttons {
+    margin:0;
+    padding: 0;
+    text-align: center;
+    -webkit-app-region: no-drag;
+    float: right;
+    height: 100%;
+   
+}
+
+#titlebar #titlebar-buttons .btn {
+    text-align: center;    
+    width:40px;
+    height: 100%;
+    padding-top: 2px;
+    padding-bottom: 4px;
+    background-color: rgba(0, 0, 0, 0);
+    color:#ffffff;
+}
+
+#titlebar #titlebar-buttons .btn:hover {
+    background-color: #D8000C;
+    color:#ffffff;
+}
+
+#titlebar #titlebar-buttons .btn:focus {
+    outline: none;
+    box-shadow: none!important;
+}
+
+
+#video-player {
+    height:100%;
+    width:100%;
+}
+
+#video-container {
+    margin:0px;
+    padding:0px;
+
+    width:100%;
+    height:100%;
+
+    display: block;
+}
+
+.video-js .vjs-control-bar {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+*/

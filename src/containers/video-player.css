@@ -1,0 +1,22 @@
+.video-player-wrapper {
+    width:100%;
+    flex: 1 1 auto;
+    display: -webkit-flex;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-flow: column;
+}
+
+.video-player-wrapper .video-js {
+    width:100%;
+    flex: 1 1 auto;
+}
+
+.vjs-default-skin.vjs-paused .vjs-big-play-button {
+    display:none;
+}
+
+.vjs-default-skin.vjs-paused .vjs-control-bar {
+    display:-webkit-inline-flex;
+}

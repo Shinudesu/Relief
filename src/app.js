@@ -1,73 +1,52 @@
 import React, { Component } from 'react';
-import VideoPlayerTitleBar from './components/video/video-player-titlebar';
-import VideoPlayer from './components/video/video-player';
+import { Position, Toaster } from '@blueprintjs/core';
 
-const electron = window.require('electron');
-const dialog = electron.remote.dialog;
+// import VideoPlayerContainer from './containers/video-player-container';
+// import TestContainer from './containers/test-container';
+import TitleBar from './components/titlebar';
+import VideoPlayerContainer from './containers/video-player-container';
 
-const mime = window.require('mime-types');
-const path = window.require('path');
+let remote = window.require('electron').remote;
+
+const nyiToaster = Toaster.create({
+    position: Position.TOP
+});
 
 export default class AppContainer extends Component{
-    state = {
-        filePath: '',
-        fileName: '',
-        fileType: ''
-    }   
 
-    constructor(props) {
-        super(props);
-
-        this.onExitButtonPressed = this.onExitButtonPressed.bind(this);
+    handleClose = () => {
+        let win = remote.getCurrentWindow();
+        win.close();
     }
 
-    onExitButtonPressed() {
-        let window = electron.remote.getCurrentWindow();
-        window.close();
+    handleMaximize = () => {
+        let win = remote.getCurrentWindow();
+        if(win.isMaximized()) {
+            win.unmaximize();
+        } else {
+            win.maximize();
+        }
     }
 
-    componentDidMount() {
-        // Open file dialog
-        console.log('Called from Mount');
-        dialog.showOpenDialog({ properties: ['openFil1e'] }, (files) => {
-            if (files !== undefined) {
-                let filePath = files[0];
-                let fileType = mime.lookup(path.extname(filePath));
-                let fileName = path.basename(filePath);
+    handleMinimize = () => {
+        let win = remote.getCurrentWindow();
+        win.minimize();
+    };
 
-                this.setState({ 
-                    fileName: fileName,
-                    fileType: fileType,
-                    filePath: filePath
-                });
-            }
-        });
+    handleSettings = () => {
+        nyiToaster.show({ message: <span>Feature not yet implemented!</span> })
     }
 
     render() {
-        if (this.state.fileName === '') {
-            return(
-                <React.Fragment>
-                Opening file
-                </React.Fragment>
-            );
-        } else {
-            const videoJsOptions = {
-                autoplay: true,
-                controls: true,
-                sources: [{
-                    title: this.state.fileName,
-                    src:    this.state.filePath,                    
-                    type:   this.state.fileType
-                }]  
-            };
-
-            return (
-                <React.Fragment>
-                    <VideoPlayerTitleBar title={ this.state.fileName } onClick ={this.onExitButtonPressed} />
-                    <VideoPlayer {...videoJsOptions}/>
-                </React.Fragment>
-            );
-        }        
+        return(
+            <React.Fragment>
+                <TitleBar 
+                    onClose={this.handleClose}
+                    onMax={this.handleMaximize}
+                    onMin={this.handleMinimize}
+                    onSettings={this.handleSettings} />
+                <VideoPlayerContainer />
+            </React.Fragment>
+        );
     }
 }

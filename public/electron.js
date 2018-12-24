@@ -1,5 +1,5 @@
-const {app, BrowserWindow, ipcMain} = require('electron');
-const isDev = require('electron-is-dev');
+const { app, BrowserWindow, ipcMain } = require('electron');
+const isDevMode = require('electron-is-dev');
 const path = require('path');
 
 let mainWindow;
@@ -12,13 +12,14 @@ function createWindow() {
         minHeight:360,
         webPreferences: {
             webSecurity: false,
-            devTools: true
+            devTools: true,
+            allowRunningInsecureContent: true
         },
         useContentSize: true
     });
 
     mainWindow.loadURL(
-        isDev ? "http://localhost:3000" : `file://${path.join(__dirname, "../build/index.html")}`,
+        isDevMode ? "http://localhost:3000" : `file://${path.join(__dirname, "../build/index.html")}`,
     );
 
     mainWindow.on('ready-to-show', () => mainWindow.show());
@@ -41,5 +42,4 @@ app.on('activate', () => {
 ipcMain.on('resize', (event, width, height) => {
     console.log(`${width} x ${height}`);
     mainWindow.setSize(width, height);
-    // mainWindow.setMinimumSize(width, height);
 });

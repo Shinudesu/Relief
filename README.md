@@ -1,2 +1,2 @@
-# SV-MediaApp
+# Relief
 Video/Audio App player created using React & Electron. Personal project of mine.

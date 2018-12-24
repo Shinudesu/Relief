@@ -4,19 +4,13 @@ import { Button, ButtonGroup, Icon, Divider, Menu, MenuItem } from '@blueprintjs
 const remote = window.require('electron').remote;
 
 class TitleBar extends React.Component {
-    fileMenu = (
-        <Menu>
-            <MenuItem icon='video' text='Open file...' />
-            <MenuItem icon='cross' text='Exit' />
-        </Menu>
-    );
-
     render() {
         const { onClose, onMax, onMin, onSettings } = this.props;
 
         return (
             <div className='titlebar'>
                 <ButtonGroup className='titlebar-window-buttons'>
+                    <Button onClick={onSettings} icon={<Icon icon='info-sign' iconSize={ICON_SIZE} />} minimal />                 
                     <Button onClick={onSettings} icon={<Icon icon='settings' iconSize={ICON_SIZE} />} minimal />                 
                     <Divider />
                     <Button onClick={onMin} icon={<Icon icon='minus' iconSize={ICON_SIZE} />} minimal /> 

@@ -12,7 +12,7 @@ const { dialog } = remote;
 const mime = require('mime-types');
 const path = require('path');
 
-export default class VideoPlayerContainer extends React.Component {  
+class VideoPlayerContainer extends React.Component {  
     constructor(props) {
         super(props);
 
@@ -92,6 +92,8 @@ export default class VideoPlayerContainer extends React.Component {
     }
 }
 
+export default VideoPlayerContainer;
+
 const vjsCompmonent = videoJs.getComponent('Button');
 
 class OpenFileVJSComponent extends vjsCompmonent {
@@ -128,3 +130,4 @@ const tempPopover = (
         Click here to open a video.
     </div>
 );
+

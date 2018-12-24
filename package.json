@@ -17,7 +17,8 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "video.js": "^7.3.0",
-    "videojs-sublime-skin": "^1.0.3"
+    "videojs-sublime-skin": "^1.0.3",
+    "webtorrent": "^0.103.0"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",

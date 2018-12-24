@@ -20,3 +20,7 @@
 .vjs-default-skin.vjs-paused .vjs-control-bar {
     display:-webkit-inline-flex;
 }
+
+.vjs-control-bar {
+    background: rgba(30, 30, 30, 0.5) !important;
+}
